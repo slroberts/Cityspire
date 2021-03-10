@@ -6,16 +6,6 @@ For steps on how to work with this repository [please see here](https://docs.lab
 
 You can find the deployed project at [g.cityspire.dev](https://g.cityspire.dev/).
 
-The "Learn more about US States" link on the home page links to a deployed netlify project [CitySpire: US States](https://cityspire-states.netlify.app/). The GitHub project for this is: [US-States](https://github.com/BritneyParkerson/US-States) in case anyone wants to continue using it.
-
-## Contributors
-
-|                                                          [Shomari Roberts](https://github.com/slroberts)                                                          |                                                         [Britney Parkerson](https://github.com/BritneyParkerson)                                                         |
-| :---------------------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-| [<img src="https://avatars.githubusercontent.com/u/32742307?s=460&u=5b16768fa895028ee408b983bf8c71b1c29bda00&v=4" width = "200" />](https://github.com/slroberts) | [<img src="https://avatars.githubusercontent.com/u/57121314?s=460&u=40516072562c04793938e17857617d2502d70594&v=4" width = "200" />](https://github.com/BritneyParkerson) |  |
-|                                      [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/slroberts)                                       |                                      [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/BritneyParkerson)                                       |  |
-|                  [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/shomariroberts/)                  |                    [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/britney-parkerson)                     |  |
-
 <br>
 <br>
 
