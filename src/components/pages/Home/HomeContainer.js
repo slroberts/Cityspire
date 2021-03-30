@@ -9,7 +9,7 @@ const spinStyle = {
   marginTop: '25%',
 };
 
-function HomeContainer() {
+function HomeContainer({ onSearchSubmit }) {
   const { authState, authService } = useOktaAuth();
   const [userInfo, setUserInfo] = useState(null);
   // eslint-disable-next-line
@@ -42,7 +42,9 @@ function HomeContainer() {
           <Spin tip="Loading..." size="large"></Spin>
         </div>
       )}
-      {authState.isAuthenticated && userInfo && <RenderHomePage />}
+      {authState.isAuthenticated && userInfo && (
+        <RenderHomePage onSearchSubmit={onSearchSubmit} />
+      )}
     </>
   );
 }

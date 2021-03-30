@@ -1,7 +1,8 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Route, useHistory, Switch, useParams } from 'react-router-dom';
-
 import { Security, LoginCallback, SecureRoute } from '@okta/okta-react';
+import { fetchCityData } from '../state/actions';
 import 'antd/dist/antd.less';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
@@ -15,17 +16,16 @@ import { UserDashboardPage } from './pages/UserDashboard';
 import { PinnedCityPage } from './pages/PinnedCity';
 
 const App = () => {
-  // The reason to declare App this way is so that we can use any helper functions we'd need for business logic, in our case auth.
-  // React Router has a nifty useHistory hook we can use at this level to ensure we have security around our routes.
-  const history = useHistory();
+  const { push } = useHistory();
+  const { id, city, state } = useParams();
 
   const authHandler = () => {
-    // We pass this to our <Security /> component that wraps our routes.
-    // It'll automatically check if userToken is available and push back to login if not :)
-    history.push('/login');
+    push('/login');
   };
 
-  const { id, city, state } = useParams();
+  const onSearchSubmit = cityAndState => {
+    fetchCityData(cityAndState);
+  };
 
   return (
     <Security {...config} onAuthRequired={authHandler}>
@@ -33,11 +33,15 @@ const App = () => {
         <Route path="/login" component={LoginPage} />
         <Route path="/implicit/callback" component={LoginCallback} />
 
-        {/* any of the routes you need secured should be registered as SecureRoutes */}
         <SecureRoute
           path="/"
           exact
-          component={() => <HomePage LoadingComponent={LoadingComponent} />}
+          component={() => (
+            <HomePage
+              LoadingComponent={LoadingComponent}
+              onSearchSubmit={onSearchSubmit}
+            />
+          )}
         />
 
         <SecureRoute path="/profile/:id/dashboard" exact>
@@ -58,4 +62,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default connect(null, { fetchCityData })(App);

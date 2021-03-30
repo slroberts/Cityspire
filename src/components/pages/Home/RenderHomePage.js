@@ -24,7 +24,7 @@ const contentStyle = {
   margin: '2%',
 };
 
-function RenderHomePage() {
+function RenderHomePage({ onSearchSubmit }) {
   return (
     <Layout className="layout">
       <Header />
@@ -75,7 +75,7 @@ function RenderHomePage() {
       <Content
         style={{ height: '85vh', marginTop: '-22rem', marginBottom: '0.03rem' }}
       >
-        <SearchForm />
+        <SearchForm onSearchSubmit={onSearchSubmit} />
       </Content>
 
       <Space size="large" align="center">

@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import { connect } from 'react-redux';
-import { fetchCityData } from '../../state/actions';
 import { useHistory } from 'react-router-dom';
 import { Row, Col, Input } from 'antd';
 
@@ -20,9 +18,7 @@ const SearchStyle = {
   padding: '1rem',
 };
 
-const SearchForm = ({ fetchCityData }) => {
-  const { push } = useHistory();
-
+const SearchForm = ({ onSearchSubmit }) => {
   const [searchValue, setSearchValue] = useState('');
 
   // Split search value right by the common
@@ -35,14 +31,15 @@ const SearchForm = ({ fetchCityData }) => {
   };
 
   const { Search } = Input;
+  const { push } = useHistory();
 
   const handleChange = e => {
     setSearchValue(e.target.value);
   };
 
-  const onSubmit = () => {
+  const onSubmit = e => {
     localStorage.setItem('cityAndState', JSON.stringify(cityAndState));
-    fetchCityData(cityAndState);
+    onSearchSubmit(cityAndState);
     push(`/${cityAndState.state}/${cityAndState.city}`);
     setSearchValue('');
   };
@@ -60,25 +57,10 @@ const SearchForm = ({ fetchCityData }) => {
             value={searchValue.city}
             onChange={handleChange}
           />
-          <p
-            style={{
-              fontSize: '2.5rem',
-              fontFamily: 'Hachi Maru Pop, cursive',
-              fontStyle: 'italic',
-              marginTop: '-8%',
-              backgroundColor: '#5946B2',
-              paddingTop: '2rem',
-              color: 'white',
-              border: '2px outset lightgrey',
-              textShadow: '1px 1px 10px #FFCC33',
-            }}
-          >
-            Search Your Desires
-          </p>
         </div>
       </Col>
     </Row>
   );
 };
 
-export default connect(null, { fetchCityData })(SearchForm);
+export default SearchForm;
