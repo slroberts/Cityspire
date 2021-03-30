@@ -10,7 +10,7 @@ export const fetchCityData = cityInfo => {
 
     try {
       const res = await axios.post(
-        `https://cityscape-203.eba-ijacxhm2.us-east-1.elasticbeanstalk.com/api/get_data`,
+        `https://cityspire1.herokuapp.com/api/get_data`,
         cityInfo
       );
 
